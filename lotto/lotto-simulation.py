@@ -1,12 +1,20 @@
-import random
+from random import randint
 
 def generate_numbers(n):
-    random_list = []
-    while len(random_list) < n:
-        random_number = random.randint(1, 45)
-        if random_number not in random_list:
-            random_list.append(random_number)
-    return random_list
+    numbers = []
 
-print(generate_numbers(6))
+    while len(numbers) < n:
+        num = randint(1, 45)
+        if num not in numbers:
+            numbers.append(num)
+
+    return numbers
+
+
+def draw_winning_numbers():
+    winning_numbers = generate_numbers(7)
+    return sorted(winning_numbers[:6]) + winning_numbers[6:]
+
+
+print(draw_winning_numbers())
 
